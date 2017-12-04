@@ -19,5 +19,4 @@ Small-flowered Cranesbill
 Sugar beet
 ```
 
-`` images in the training dataset
 `794` images in the test dataset
