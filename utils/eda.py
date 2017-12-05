@@ -91,3 +91,15 @@ def create_valid(path, pct_split=.8):
                 shutil.move(source, destination + '/' + i)
     else:
         print('Validation path exists')
+
+
+def metrics(y, yhat):
+    from sklearn.metrics import confusion_matrix
+    from sklearn.metrics import f1_score
+    from sklearn.metrics import accuracy_score
+    cm = confusion_matrix(y, yhat)
+    f1 = f1_score(y, yhat, average='macro')
+    acc = accuracy_score(y, yhat)
+
+    # plt.matshow(cm)
+    return f1, acc, cm
