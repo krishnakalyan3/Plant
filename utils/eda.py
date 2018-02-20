@@ -16,7 +16,7 @@ def count_files(path):
     return pprint.pprint(dir_dict, width=1)
 
 
-def get_stats_from_path(path, plot=False):
+def get_stats_from_path_train(path, plot=False):
     widths = []
     heights = []
 
@@ -37,6 +37,21 @@ def get_stats_from_path(path, plot=False):
         axarr[0].hist(widths, color='blue', label='widths')
         axarr[1].hist(heights, color='red', label='heights')
 
+    return widths, heights
+
+
+def get_stats_from_path_test(path):
+    widths = []
+    heights = []
+
+    for d in os.listdir(path):
+        f = os.path.join(path, d)
+        width, height = get_image_size(f)
+        widths.append(width)
+        heights.append(height)
+
+    #print('Height min: {} max: {}'.format(min(heights), max(heights)))
+    #print('Width min: {} max: {}'.format(min(widths), max(widths)))
     return widths, heights
 
 
